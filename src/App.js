@@ -33,7 +33,7 @@ function Nav() {
 class App extends Component {
 	render() {
 		return (
-			<Router>
+			<Router basename={process.env.PUBLIC_URL}>
 				<Nav/>
 				<div className="container mt-4">
 					<Route exact path="/" component={Home} />
