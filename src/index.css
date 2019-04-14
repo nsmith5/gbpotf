@@ -1,6 +1,34 @@
 @font-face {
-	font-family: "Domaine Sans";
-	src: url(./fonts/DomaineSans_1P25.otf);
+	font-family: "GBP OTF 1.05";
+	src: url(./assets/fonts/DomaineSans_1P05.otf);
+}
+@font-face {
+	font-family: "GBP OTF 1.10";
+	src: url(./assets/fonts/DomaineSans_1P10.otf);
+}
+@font-face {
+	font-family: "GBP OTF 1.15";
+	src: url(./assets/fonts/DomaineSans_1P15.otf);
+}
+@font-face {
+	font-family: "GBP OTF 1.20";
+	src: url(./assets/fonts/DomaineSans_1P20.otf);
+}
+@font-face {
+	font-family: "GBP OTF 1.25";
+	src: url(./assets/fonts/DomaineSans_1P25.otf);
+}
+@font-face {
+	font-family: "GBP OTF 1.30";
+	src: url(./assets/fonts/DomaineSans_1P30.otf);
+}
+@font-face {
+	font-family: "GBP OTF 1.35";
+	src: url(./assets/fonts/DomaineSans_1P35.otf);
+}
+@font-face {
+	font-family: "GBP OTF 1.40";
+	src: url(./assets/fonts/DomaineSans_1P40.otf);
 }
 
 body {
@@ -9,7 +37,7 @@ body {
   background-color: #7e7f7e;
   color: white;
   font-size: 32px;
-  font-family: "Domaine Sans";
+  font-family: "GBP OTF 1.05";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
