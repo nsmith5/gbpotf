@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { extent } from 'd3-array'
 import { scaleLinear, scaleTime } from 'd3-scale'
 import { line } from 'd3-shape'
@@ -93,10 +93,41 @@ class SparkLine2 extends Component {
 	}
 }
 
+class Slider extends Component {
+	constructor(props) {
+		super(props)
+		this.state = { value : this.props.value }
+	}
 
-function Home(props) {	
+	handleInput = (e) => {
+		this.props.handler(e.target.value / 100)
+		this.setState({
+			value: e.target.value
+		})
+	}
+
+	render() {
+		return (
+		<div className="sliderContainer">
+			<input 
+				className="slider"
+				type="range"
+				min="100"
+				max="140"
+				value={this.state.value}
+				onChange={this.handleInput}
+			/>
+		</div>
+		)
+	}
+}
+
+function Home(props) {
 	return (
-		<SparkLine2 height={300} width={700} data={props.data}/>
+		<Fragment>
+			<SparkLine2 height={300} width={700} data={props.data}/>
+			<Slider value="116" handler={props.priceHandler}/>
+		</Fragment>
 	)
 }
 

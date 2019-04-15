@@ -43,13 +43,15 @@ class App extends Component {
 				{ date: new Date(2018, 3, 3), price: 1.31 },
 			]
 		}
+
+		this.changePrice = this.changePrice.bind(this)
 	}
 
 	componentWillMount() {
 		var date = new Date()
 		var params = {
 			startAt: '2010-01-01',
-			endAt: `${date.getUTCFullYear()}-${date.getUTCMonth()}-${date.getUTCDate()}`,
+			endAt: date.toISOString().split("T")[0],
 			symbols: 'EUR',
 			base: 'GBP',
 		}
@@ -64,7 +66,7 @@ class App extends Component {
 			var newHistory = Object.entries(json.rates).map(([date, price]) => {
 				return { date: new Date(date), price: price.EUR }		
 			})
-			newHistory.sort((a, b) => a.date < b.date)
+			newHistory.sort((a, b) => a.date - b.date)  
 			var { date, price } = newHistory[0]
 
 			this.setState({ 
@@ -73,6 +75,10 @@ class App extends Component {
 				price: price,
 			})
 		})
+	}
+
+	changePrice(price) {
+		this.setState({price: price})
 	}
 
 	render() {
@@ -102,7 +108,14 @@ class App extends Component {
 					<Route
 						exact
 						path="/"
-						render={() => <Home data={this.state.history} /> }
+						render={() => {
+							return (
+								<Home 
+									data={this.state.history}
+									priceHandler={this.changePrice}
+								/>
+							)
+						}}
 					/>
 					<Route path="/download" component={Download} />
 					<Route path="/feed" component={Feed} />
